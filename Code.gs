@@ -90,7 +90,6 @@ function getNumberColumns(allValues, symb){
   for(var i = 0; i < allValues[1].length; i++){
     if(allValues[1][i] == symb){
       numberColumns.push(i);
-      //console.log(i + ", " + allValues[1][i])
     }
   }
   return numberColumns;
@@ -98,7 +97,6 @@ function getNumberColumns(allValues, symb){
 
 function myFunction() {
 
-  //TODO COlumn span is not working, and body is not working
 
     var isSortable = true;
     var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -119,7 +117,6 @@ function myFunction() {
       output += '{|\n';
     }
     output += '|+ County results\n'
-    //var rangeTracker = sheet.getRange(1,1);
     var r = 0;
     var c = 0;
 
@@ -153,10 +150,9 @@ function myFunction() {
          
         
         else{
-          var percCols = getNumberColumns(allValues, '%');
           if(r > 1 && r < numOfRow){
-          for(var i = 0; i < percCols.length; i++){
-            if(c == percCols[i]){
+          for(var i = 0; i < percentColumns.length; i++){
+            if(c == percentColumns[i]){
               allValues[r][c] = allValues[r][c]*100;
               allValues[r][c] = parseFloat(allValues[r][c].toString()).toFixed(2).toString() + '%';
               
